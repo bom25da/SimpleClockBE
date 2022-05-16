@@ -1,0 +1,14 @@
+server:
+  port: 8081
+  
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+  datasource:
+    url: jdbc:mysql://125.128.10.133:3306/
+    username: root
+    password: chfhrtor9
+  jpa:
+    hibernate:
+      ddl-auto: create
