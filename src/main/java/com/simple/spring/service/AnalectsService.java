@@ -18,15 +18,7 @@ public class AnalectsService {
     public AnalectsService(AnalectsRepository analRepository) {
         this.analRepository = analRepository;
     }
-		
-	@GetMapping(value = "/{analDate}")
-	public Analects getAnalects(String analDate) {
-		Analects anal = new Analects();
-		anal.AnalectsDate = "20220517";
-		anal.AnalectsText = "명언";
-		return anal;
-	}
-	
+			
 	public Analects create(Analects anal) {
         return analRepository.save(anal);
     }

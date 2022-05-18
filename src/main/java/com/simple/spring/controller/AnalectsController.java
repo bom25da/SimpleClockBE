@@ -41,8 +41,9 @@ public class AnalectsController {
                 .body(analService.create(anal));
     }
 
-    @GetMapping("/anal/read/{id}")
-    public ResponseEntity<Analects> read(@PathVariable String analDate) {
+    @GetMapping("/anal/read/{analDate}")
+    public ResponseEntity<Analects> read(@PathVariable("analDate") String analDate) {
+    	    	
         return ResponseEntity.ok()
                 .body(analService.read(analDate).get());
     }
@@ -52,8 +53,8 @@ public class AnalectsController {
                 .body(analService.update(analDate,analText));
     }
 
-    @DeleteMapping("/anal/delete/{id}")
-    public void delete(@PathVariable String analDate) {
+    @DeleteMapping("/anal/delete/{analDate}")
+    public void delete(@PathVariable("analDate") String analDate) {
     	analService.delete(analDate);
     }
 }

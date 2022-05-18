@@ -1,14 +1,23 @@
 server:
   port: 8081
   
+        
 spring:
-  freemarker:
-    template-loader-path: classpath:/templates/
-    suffix: .ftl
   datasource:
-    url: jdbc:mysql://125.128.10.133:3306/
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://125.128.10.133:3306/SCDB?serverTimezone=Asia/Seoul
     username: root
     password: chfhrtor9
+    
   jpa:
+    show-sql: true
     hibernate:
+      format_sql: true
       ddl-auto: create
+ 
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: trace
