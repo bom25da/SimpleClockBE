@@ -14,6 +14,6 @@ import lombok.Setter;
 @Setter
 public class Analects {
 	@Id
-	public String AnalectsDate;
-	public String AnalectsText;
+	public String analectsDate;
+	public String analectsText;
 }

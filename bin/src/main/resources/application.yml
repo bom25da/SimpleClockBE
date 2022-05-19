@@ -13,9 +13,7 @@ spring:
     show-sql: true
     hibernate:
       format_sql: true
-      ddl-auto: update
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: create
  
 logging:
   level:

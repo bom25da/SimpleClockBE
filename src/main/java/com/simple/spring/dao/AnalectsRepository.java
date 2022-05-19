@@ -14,8 +14,8 @@ public interface AnalectsRepository extends CrudRepository<Analects, String> {
 	Analects save(Analects anal);
 
     @Override // Read
-    Optional<Analects> findById(String AnalectsDate);
+    Optional<Analects> findById(String analectsDate);
 
     @Override // Delete
-    void deleteById(String AnalectsDate);
+    void deleteById(String analectsDate);
 }
