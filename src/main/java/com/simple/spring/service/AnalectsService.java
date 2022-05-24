@@ -1,5 +1,6 @@
 package com.simple.spring.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +24,21 @@ public class AnalectsService {
         return analRepository.save(anal);
     }
 
-    public Optional<Analects> read(String analDate) {
-        return analRepository.findById(analDate);
+    public Optional<Analects> findByAnalDate(Integer id) {
+        return analRepository.findById(id);
     }
 
-    public Analects update(String analDate, String analText) {
-    	Analects anal = read(analDate).get();
+    public List<Analects> findAll() {
+        return analRepository.findAll();
+    }
+
+    public Analects update(Integer id, String analDate, String analText) {
+    	Analects anal = findByAnalDate(id).get();
     	//anal.setAnalText(analText);
         return analRepository.save(anal);
     }
 
-    public void delete(String analDate) {
-    	analRepository.deleteById(analDate);
+    public void delete(Integer id) {
+    	analRepository.deleteById(id);
     }
 }

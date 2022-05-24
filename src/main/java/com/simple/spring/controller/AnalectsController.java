@@ -3,6 +3,8 @@ package com.simple.spring.controller;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -41,20 +43,27 @@ public class AnalectsController {
                 .body(analService.create(anal));
     }
 
-    @GetMapping("/anal/read/{analDate}")
-    public ResponseEntity<Analects> read(@PathVariable("analDate") String analDate) {
+    @GetMapping("/anal/read/{id}")
+    public ResponseEntity<Analects> findByAnalDate(@PathVariable("id") Integer id) {
     	    	
         return ResponseEntity.ok()
-                .body(analService.read(analDate).get());
+                .body(analService.findByAnalDate(id).get());
     }
+    
+    @GetMapping("/anal/read")
+    public ResponseEntity<List<Analects>> findAll() {
+
+        return ResponseEntity.ok(analService.findAll());
+    }
+    
     @PutMapping("/anal/update")
-    public ResponseEntity<Analects> read(@RequestParam String analDate, @RequestParam String analText) {
+    public ResponseEntity<Analects> read(@RequestParam Integer id, @RequestParam String analDate, @RequestParam String analText) {
         return ResponseEntity.ok()
-                .body(analService.update(analDate,analText));
+                .body(analService.update(id,analDate,analText));
     }
 
-    @DeleteMapping("/anal/delete/{analDate}")
-    public void delete(@PathVariable("analDate") String analDate) {
-    	analService.delete(analDate);
+    @DeleteMapping("/anal/delete/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+    	analService.delete(id);
     }
 }
