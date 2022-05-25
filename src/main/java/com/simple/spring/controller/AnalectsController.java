@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -44,7 +45,7 @@ public class AnalectsController {
     }
 
     @GetMapping("/anal/read/{id}")
-    public ResponseEntity<Analects> findByAnalDate(@PathVariable("id") Integer id) {
+    public ResponseEntity<Analects> findByAnalDate(@PathVariable("id") Long id) {
     	    	
         return ResponseEntity.ok()
                 .body(analService.findByAnalDate(id).get());
@@ -56,14 +57,14 @@ public class AnalectsController {
         return ResponseEntity.ok(analService.findAll());
     }
     
-    @PutMapping("/anal/update")
-    public ResponseEntity<Analects> read(@RequestParam Integer id, @RequestParam String analDate, @RequestParam String analText) {
+    @PatchMapping("/anal/update/{id}")
+    public ResponseEntity<Analects> read(@RequestBody Analects anal) {
         return ResponseEntity.ok()
-                .body(analService.update(id,analDate,analText));
+                .body(analService.update(anal.id,anal.analectsDate,anal.analectsText));
     }
 
     @DeleteMapping("/anal/delete/{id}")
-    public void delete(@PathVariable("id") Integer id) {
+    public void delete(@PathVariable("id") Long id) {
     	analService.delete(id);
     }
 }

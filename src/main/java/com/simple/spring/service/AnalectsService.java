@@ -24,7 +24,7 @@ public class AnalectsService {
         return analRepository.save(anal);
     }
 
-    public Optional<Analects> findByAnalDate(Integer id) {
+    public Optional<Analects> findByAnalDate(Long id) {
         return analRepository.findById(id);
     }
 
@@ -32,13 +32,13 @@ public class AnalectsService {
         return analRepository.findAll();
     }
 
-    public Analects update(Integer id, String analDate, String analText) {
+    public Analects update(Long id, String analDate, String analText) {
     	Analects anal = findByAnalDate(id).get();
     	//anal.setAnalText(analText);
         return analRepository.save(anal);
     }
 
-    public void delete(Integer id) {
+    public void delete(Long id) {
     	analRepository.deleteById(id);
     }
 }

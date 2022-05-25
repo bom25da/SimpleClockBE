@@ -13,8 +13,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Analects {
+	
 	@Id
-	public int id;
+	@GeneratedValue
+	public Long id;
 	public String analectsDate;
 	public String analectsText;
 }
