@@ -12,20 +12,20 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Analects {
+public class ExtensionBlock {
 	
 	@Id
 	@GeneratedValue
 	public Long id;
-	public String analectsDate;
-	public String analectsText;
+	public String extension;
+	public String createDateTime;
 	
-	public void setAnalectsDate(String analDate) {
+	public void setExtension(String extension) {
 		// TODO Auto-generated method stub
-		this.analectsDate = analDate;
+		this.extension = extension;
 	}
-	public void setAnalectsText(String analText) {
+	public void setCreateDateTime(String createDateTime) {
 		// TODO Auto-generated method stub
-		this.analectsText = analText;		
+		this.createDateTime = createDateTime;		
 	}
 }

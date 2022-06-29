@@ -12,20 +12,20 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Analects {
+public class RecentKeywords {
 	
 	@Id
 	@GeneratedValue
 	public Long id;
-	public String analectsDate;
-	public String analectsText;
+	public String keywords;
+	public String createDateTime;
 	
-	public void setAnalectsDate(String analDate) {
+	public void setKeywords(String keywords) {
 		// TODO Auto-generated method stub
-		this.analectsDate = analDate;
+		this.keywords = keywords;
 	}
-	public void setAnalectsText(String analText) {
+	public void setCreateDateTime(String createDateTime) {
 		// TODO Auto-generated method stub
-		this.analectsText = analText;		
+		this.createDateTime = createDateTime;		
 	}
 }

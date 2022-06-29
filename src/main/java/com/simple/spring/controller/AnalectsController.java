@@ -3,6 +3,7 @@ package com.simple.spring.controller;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +46,16 @@ public class AnalectsController {
     }
 
     @GetMapping("/anal/read/{id}")
-    public ResponseEntity<Analects> findByAnalDate(@PathVariable("id") Long id) {
+    public ResponseEntity<Analects> findByAnalID(@PathVariable("id") Long id) {
     	    	
         return ResponseEntity.ok()
-                .body(analService.findByAnalDate(id).get());
+                .body(analService.findByAnalID(id).get());
+    }
+
+    @GetMapping("/anal/read/analDate/{analDate}")
+    public String findByAnalDate(@PathVariable("analDate") String analDate) {
+    	    	
+        return analService.findByAnalDate(analDate);
     }
     
     @GetMapping("/anal/read")
@@ -58,7 +65,7 @@ public class AnalectsController {
     }
     
     @PatchMapping("/anal/update/{id}")
-    public ResponseEntity<Analects> read(@RequestBody Analects anal) {
+    public ResponseEntity<Analects> read(@RequestBody Analects anal) {    	
         return ResponseEntity.ok()
                 .body(analService.update(anal.id,anal.analectsDate,anal.analectsText));
     }
