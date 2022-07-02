@@ -11,13 +11,13 @@ import com.simple.spring.model.ExtensionBlock;
 import com.simple.spring.model.RecentKeywords;
 
 @Repository
-public interface ExtensionBlockRepository extends CrudRepository<ExtensionBlock, Long> {
+public interface ExtensionBlockRepository extends CrudRepository<ExtensionBlock, String> {
 		
 	@Override // Create, Update
 	ExtensionBlock save(ExtensionBlock extension);
     
-    List<ExtensionBlock> findTop200ByOrderByIdDesc();
+    List<ExtensionBlock> findTop200ByOrderByCreateDateTimeDesc();
 
     @Override // Delete
-    void deleteById(Long id);
+    void deleteById(String id);
 }

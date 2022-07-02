@@ -27,10 +27,10 @@ public class ExtensionBlockService {
     }
 
     public List<ExtensionBlock> findAll() {
-        return extensionRepository.findTop200ByOrderByIdDesc();
+        return extensionRepository.findTop200ByOrderByCreateDateTimeDesc();
     }
 
-    public void delete(Long id) {
+    public void delete(String id) {
     	extensionRepository.deleteById(id);
     }
 }

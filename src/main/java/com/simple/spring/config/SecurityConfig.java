@@ -19,8 +19,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) 
-            .and()
-            .cors().configurationSource(corsConfigurationSource())
+            //.and()
+            //.cors().configurationSource(corsConfigurationSource())
             .and()
             .httpBasic()
             .and()
@@ -40,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     
  // CORS 허용 적용
+    /*
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -52,5 +53,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
+    }*/
 }

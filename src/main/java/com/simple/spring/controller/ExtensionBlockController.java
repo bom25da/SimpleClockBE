@@ -53,7 +53,7 @@ public class ExtensionBlockController {
     }
 
     @DeleteMapping("/extension/delete/{id}")
-    public void delete(@PathVariable("id") Long id) {
+    public void delete(@PathVariable("id") String id) {
     	extensionService.delete(id);
     }
 }
